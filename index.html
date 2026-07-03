@@ -3,562 +3,541 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>护理学基础课程 · 课程主页</title>
+<title>陈玉卿 Yuqing Chen | 南昌大学护理学院</title>
+<meta name="description" content="陈玉卿博士，南昌大学护理学院讲师，主要研究方向为肿瘤护理与家庭健康促进。">
+<meta name="author" content="Yuqing Chen">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231e4a8a'/%3E%3Ctext x='50' y='65' text-anchor='middle' font-size='60' font-family='serif' fill='white'%3E陈%3C/text%3E%3C/svg%3E">
+
 <style>
-  :root{
-    --navy:#0d3b66;
-    --navy-2:#1a4b8c;
-    --blue-light:#e8f0fa;
-    --blue-soft:#f4f8fd;
-    --accent:#2e7dd1;
-    --ink:#1f2d3d;
-    --ink-soft:#46586b;
-    --line:#dbe5f0;
-    --white:#ffffff;
-    --gold:#c8a24a;
-    --shadow:0 6px 22px rgba(13,59,102,.10);
-    --shadow-sm:0 2px 10px rgba(13,59,102,.07);
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth;scroll-padding-top:84px}
-  body{
-    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC","Noto Sans CJK SC",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
-    color:var(--ink);
-    background:var(--white);
-    line-height:1.85;
-    font-size:18px;
-    -webkit-font-smoothing:antialiased;
-  }
-  a{color:inherit;text-decoration:none}
-  img{max-width:100%;display:block}
+  /* ============================================
+     基础重置
+     ============================================ */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-  /* ===== 顶部导航 ===== */
-  header.nav{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    background:rgba(13,59,102,.96);
-    backdrop-filter:saturate(140%) blur(8px);
-    box-shadow:0 2px 18px rgba(13,59,102,.22);
+  :root {
+    --ink: #1a1a1a;
+    --ink-soft: #4a4a4a;
+    --ink-mute: #7a7a7a;
+    --rule: #e5e5e5;
+    --bg: #ffffff;
+    --bg-soft: #fafaf7;
+    --accent: #1e4a8a;
+    --accent-soft: #f4f8fd;
+    --max-w: 1080px;
   }
-  .nav-inner{
-    max-width:1180px;margin:0 auto;padding:0 28px;
-    height:74px;display:flex;align-items:center;justify-content:space-between;
-  }
-  .brand{display:flex;align-items:center;gap:12px;color:#fff}
-  .brand .logo{
-    width:40px;height:40px;border-radius:10px;
-    background:#fff;display:flex;align-items:center;justify-content:center;
-    color:var(--navy);font-weight:800;font-size:20px;
-    box-shadow:0 2px 8px rgba(0,0,0,.18);
-  }
-  .brand .brand-text{line-height:1.15}
-  .brand .brand-text small{display:block;font-size:12px;font-weight:400;opacity:.78;letter-spacing:1px}
-  .brand .brand-text strong{font-size:18px;font-weight:600;letter-spacing:.5px}
-  nav.links{display:flex;gap:6px}
-  nav.links a{
-    color:#e6eefb;font-size:17px;font-weight:500;
-    padding:10px 18px;border-radius:9px;transition:.22s;
-    position:relative;
-  }
-  nav.links a:hover{background:rgba(255,255,255,.13);color:#fff}
-  nav.links a.active{background:var(--accent);color:#fff}
 
-  /* ===== 通用区块 ===== */
-  section{padding:88px 28px}
-  .wrap{max-width:1180px;margin:0 auto}
-  .section-head{text-align:center;margin-bottom:56px}
-  .section-head .eyebrow{
-    display:inline-block;font-size:15px;font-weight:600;letter-spacing:3px;
-    color:var(--accent);text-transform:uppercase;margin-bottom:14px;
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC",
+                 "Times New Roman", "STSong", serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.85;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
   }
-  .section-head h2{
-    font-size:38px;font-weight:700;color:var(--navy);letter-spacing:1px;
-  }
-  .section-head .rule{
-    width:64px;height:4px;background:var(--gold);border-radius:3px;margin:20px auto 0;
-  }
-  .section-head p{margin-top:18px;color:var(--ink-soft);font-size:19px;max-width:680px;margin-left:auto;margin-right:auto}
 
-  /* ===== 首页 Hero ===== */
-  #home{
-    min-height:100vh;display:flex;align-items:center;
-    background:
-      radial-gradient(1200px 600px at 80% -10%,rgba(46,125,209,.18),transparent 60%),
-      linear-gradient(160deg,#0d3b66 0%,#13407a 45%,#1a4b8c 100%);
-    color:#fff;padding-top:120px;
-    position:relative;overflow:hidden;
-  }
-  #home::after{
-    content:"";position:absolute;inset:0;
-    background-image:
-      linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),
-      linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
-    background-size:54px 54px;
-    pointer-events:none;
-  }
-  .hero{position:relative;z-index:1;max-width:1180px;margin:0 auto;width:100%}
-  .hero .tag{
-    display:inline-flex;align-items:center;gap:8px;
-    background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
-    padding:8px 18px;border-radius:999px;font-size:16px;font-weight:500;
-    margin-bottom:28px;backdrop-filter:blur(4px);
-  }
-  .hero .tag .dot{width:8px;height:8px;border-radius:50%;background:var(--gold)}
-  .hero h1{
-    font-size:62px;font-weight:800;line-height:1.18;letter-spacing:2px;
-    margin-bottom:24px;
-  }
-  .hero h1 .accent{color:#ffd98a}
-  .hero .sub{
-    font-size:24px;font-weight:400;line-height:1.7;opacity:.92;
-    max-width:680px;margin-bottom:42px;
-  }
-  .hero .cta{display:flex;gap:18px;flex-wrap:wrap}
-  .btn{
-    display:inline-flex;align-items:center;gap:10px;
-    font-size:18px;font-weight:600;padding:15px 32px;border-radius:12px;
-    transition:.22s;cursor:pointer;border:none;
-  }
-  .btn-primary{background:#fff;color:var(--navy)}
-  .btn-primary:hover{background:#ffd98a;transform:translateY(-2px)}
-  .btn-ghost{background:rgba(255,255,255,.12);color:#fff;border:1.5px solid rgba(255,255,255,.45)}
-  .btn-ghost:hover{background:rgba(255,255,255,.22)}
+  a { color: var(--accent); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color .2s; }
+  a:hover { border-bottom-color: var(--accent); }
 
-  .hero-stats{
-    display:flex;gap:48px;margin-top:64px;flex-wrap:wrap;
-    padding-top:40px;border-top:1px solid rgba(255,255,255,.18);
+  /* ============================================
+     顶部导航
+     ============================================ */
+  .topbar {
+    border-bottom: 1px solid var(--rule);
+    background: var(--bg);
+    position: sticky; top: 0; z-index: 100;
   }
-  .hero-stats .stat .num{font-size:42px;font-weight:800;color:#ffd98a;line-height:1}
-  .hero-stats .stat .lbl{font-size:16px;opacity:.85;margin-top:8px}
+  .topbar-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 18px 32px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .topbar .brand {
+    font-size: 19px; font-weight: 600; color: var(--ink);
+    letter-spacing: .5px;
+  }
+  .topbar nav { display: flex; gap: 28px; flex-wrap: wrap; }
+  .topbar nav a {
+    color: var(--ink-soft); font-size: 15.5px;
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  .topbar nav a:hover { color: var(--accent); }
 
-  /* ===== 课程介绍 ===== */
-  #intro{background:var(--white)}
-  .intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-  .intro-text h3{font-size:30px;color:var(--navy);margin-bottom:20px;font-weight:700;line-height:1.4}
-  .intro-text p{font-size:19px;color:var(--ink-soft);margin-bottom:20px}
-  .intro-features{list-style:none;margin-top:28px}
-  .intro-features li{
-    display:flex;gap:14px;padding:14px 0;border-bottom:1px dashed var(--line);
-    font-size:18px;color:var(--ink);
+  /* ============================================
+     头部
+     ============================================ */
+  header.hero {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 70px 32px 50px;
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 60px;
+    align-items: start;
   }
-  .intro-features li:last-child{border-bottom:none}
-  .intro-features .ic{
-    flex:0 0 32px;height:32px;border-radius:8px;background:var(--blue-light);
-    color:var(--navy);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;
+  .hero-text h1 {
+    font-size: 44px; font-weight: 600; line-height: 1.25;
+    letter-spacing: 1px; margin-bottom: 14px;
   }
-  .intro-card{
-    background:var(--blue-soft);border:1px solid var(--line);
-    border-radius:18px;padding:40px;box-shadow:var(--shadow-sm);
+  .hero-text .en-name {
+    font-size: 22px; color: var(--ink-soft);
+    font-style: italic; margin-bottom: 22px;
+    font-family: "Georgia", "Times New Roman", serif;
   }
-  .intro-card .label{font-size:15px;color:var(--accent);font-weight:600;letter-spacing:2px}
-  .intro-card .big{font-size:54px;font-weight:800;color:var(--navy);line-height:1.1;margin:10px 0 6px}
-  .intro-card .desc{font-size:17px;color:var(--ink-soft)}
-  .intro-meta{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
-  .intro-meta .item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
-  .intro-meta .item .k{font-size:14px;color:var(--ink-soft)}
-  .intro-meta .item .v{font-size:19px;font-weight:700;color:var(--navy);margin-top:4px}
+  .hero-text .tagline {
+    font-size: 18px; color: var(--ink-soft);
+    margin-bottom: 26px; line-height: 1.9;
+  }
+  .hero-meta {
+    display: flex; flex-direction: column; gap: 6px;
+    font-size: 15.5px; color: var(--ink-soft);
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  .hero-meta div { display: flex; align-items: center; gap: 8px; }
+  .hero-meta .ico { width: 16px; color: var(--ink-mute); }
+  .hero-photo img {
+    width: 220px; height: 280px;
+    object-fit: cover; object-position: center 20%;
+    border-radius: 4px;
+    box-shadow: 0 4px 16px rgba(0,0,0,.08);
+  }
 
-  /* 教学目标卡片 */
-  .goals{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:64px}
-  .goal{
-    background:var(--white);border:1px solid var(--line);border-top:4px solid var(--navy);
-    border-radius:16px;padding:32px;box-shadow:var(--shadow-sm);transition:.25s;
+  /* ============================================
+     通用区段
+     ============================================ */
+  section {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 36px 32px;
+    border-top: 1px solid var(--rule);
   }
-  .goal:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-top-color:var(--accent)}
-  .goal .num{font-size:16px;font-weight:700;color:var(--accent);letter-spacing:2px}
-  .goal h4{font-size:23px;color:var(--navy);margin:10px 0 14px;font-weight:700}
-  .goal p{font-size:17px;color:var(--ink-soft);line-height:1.8}
+  section h2 {
+    font-size: 26px; font-weight: 600;
+    color: var(--ink); margin-bottom: 26px;
+    padding-bottom: 8px;
+    display: flex; align-items: baseline; gap: 12px;
+  }
+  section h2 .en {
+    font-size: 18px; color: var(--ink-mute);
+    font-style: italic; font-weight: 400;
+    font-family: "Georgia", "Times New Roman", serif;
+  }
+  section h3 {
+    font-size: 19px; font-weight: 600;
+    color: var(--ink); margin: 26px 0 12px;
+  }
+  section p { margin-bottom: 14px; color: var(--ink); }
+  section ul { margin: 8px 0 16px 0; padding-left: 0; list-style: none; }
+  section ul li {
+    position: relative; padding-left: 22px; margin-bottom: 8px;
+    color: var(--ink);
+  }
+  section ul li::before {
+    content: ""; position: absolute;
+    left: 6px; top: 14px;
+    width: 6px; height: 1px;
+    background: var(--ink-mute);
+  }
 
-  /* ===== 课件资源 ===== */
-  #resources{background:var(--blue-soft)}
-  .res-filter{
-    display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;
+  /* 双语段落：中文一行、英文一行 */
+  .bilingual p:first-child {
+    font-family: "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", serif;
   }
-  .res-filter button{
-    border:1.5px solid var(--line);background:#fff;color:var(--ink-soft);
-    padding:10px 22px;border-radius:999px;font-size:16px;font-weight:500;cursor:pointer;transition:.2s;
+  .bilingual p + p {
+    font-family: "Georgia", "Times New Roman", serif;
+    color: var(--ink-soft); font-style: italic;
+    margin-top: -4px; margin-bottom: 18px;
   }
-  .res-filter button.active,.res-filter button:hover{
-    background:var(--navy);color:#fff;border-color:var(--navy);
-  }
-  .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-  .res-card{
-    background:#fff;border:1px solid var(--line);border-radius:16px;
-    padding:28px;box-shadow:var(--shadow-sm);transition:.25s;display:flex;flex-direction:column;
-  }
-  .res-card:hover{transform:translateY(-5px);box-shadow:var(--shadow)}
-  .res-card .top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-  .res-card .ftype{
-    width:52px;height:52px;border-radius:12px;display:flex;align-items:center;justify-content:center;
-    font-weight:800;font-size:14px;color:#fff;letter-spacing:.5px;flex-shrink:0;
-  }
-  .ftype.pdf{background:#e0533d}
-  .ftype.ppt{background:#d24726}
-  .ftype.doc{background:#2b579a}
-  .ftype.vid{background:var(--accent)}
-  .ftype.zip{background:var(--gold)}
-  .res-card .tinfo .tname{font-size:19px;font-weight:700;color:var(--ink);line-height:1.4}
-  .res-card .tinfo .tmeta{font-size:14px;color:var(--ink-soft);margin-top:3px}
-  .res-card .desc{font-size:16px;color:var(--ink-soft);flex:1;margin-bottom:20px;line-height:1.7}
-  .res-card .tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-  .res-card .tags span{font-size:13px;background:var(--blue-light);color:var(--navy);padding:4px 12px;border-radius:6px;font-weight:500}
-  .res-card .dl{
-    display:inline-flex;align-items:center;gap:8px;justify-content:center;
-    background:var(--navy);color:#fff;padding:11px 20px;border-radius:10px;font-size:16px;font-weight:600;
-    transition:.2s;
-  }
-  .res-card .dl:hover{background:var(--accent)}
 
-  /* ===== 联系方式 ===== */
-  #contact{background:var(--white)}
-  .contact-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:stretch}
-  .contact-info{display:grid;grid-template-columns:1fr 1fr;gap:22px}
-  .cinfo{
-    background:var(--blue-soft);border:1px solid var(--line);border-radius:16px;padding:28px;
-    display:flex;gap:16px;align-items:flex-start;transition:.25s;
+  /* 双语小标题 */
+  .h-bilingual { display: flex; flex-direction: column; gap: 2px; margin: 28px 0 12px; }
+  .h-bilingual .zh { font-size: 19px; font-weight: 600; color: var(--ink); }
+  .h-bilingual .en {
+    font-size: 14.5px; color: var(--ink-mute);
+    font-style: italic; font-weight: 400;
+    font-family: "Georgia", "Times New Roman", serif;
   }
-  .cinfo:hover{background:#fff;box-shadow:var(--shadow)}
-  .cinfo .ic{
-    flex:0 0 48px;height:48px;border-radius:12px;background:var(--navy);color:#fff;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .cinfo .k{font-size:15px;color:var(--ink-soft);font-weight:500}
-  .cinfo .v{font-size:18px;font-weight:700;color:var(--navy);margin-top:4px;line-height:1.5;word-break:break-all}
 
-  .qa-card{
-    background:linear-gradient(160deg,var(--navy),var(--navy-2));
-    border-radius:18px;padding:40px;color:#fff;
-    display:flex;flex-direction:column;justify-content:center;
+  /* ============================================
+     教育时间线
+     ============================================ */
+  .timeline { position: relative; padding-left: 24px; }
+  .timeline::before {
+    content: ""; position: absolute;
+    left: 6px; top: 6px; bottom: 6px;
+    width: 1px; background: var(--rule);
   }
-  .qa-card .label{font-size:14px;letter-spacing:3px;color:#ffd98a;font-weight:600;margin-bottom:14px}
-  .qa-card h3{font-size:28px;font-weight:700;margin-bottom:20px;line-height:1.4}
-  .qa-time{display:flex;flex-direction:column;gap:14px;margin-top:8px}
-  .qa-time .row{display:flex;justify-content:space-between;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.18);font-size:17px}
-  .qa-time .row:last-child{border:none;padding:0}
-  .qa-time .row .day{opacity:.85}
-  .qa-time .row .t{font-weight:700;color:#ffd98a}
+  .tl-item { position: relative; margin-bottom: 22px; padding-left: 4px; }
+  .tl-item::before {
+    content: ""; position: absolute;
+    left: -22px; top: 12px;
+    width: 9px; height: 9px;
+    border-radius: 50%;
+    background: var(--bg);
+    border: 2px solid var(--accent);
+  }
+  .tl-period {
+    color: var(--accent); font-weight: 600;
+    font-size: 15px; margin-bottom: 2px;
+    font-family: "Georgia", "Times New Roman", serif;
+  }
+  .tl-desc { font-size: 17px; color: var(--ink); }
+  .tl-desc .degree {
+    color: var(--ink-soft); font-size: 15.5px; margin-left: 6px;
+    font-style: italic;
+  }
 
-  /* ===== 页脚 ===== */
-  footer{
-    background:var(--navy);color:#cdd9ea;padding:46px 28px;text-align:center;
+  /* ============================================
+     学术成果列表
+     ============================================ */
+  .pub-list { list-style: none; padding: 0; }
+  .pub-item {
+    padding: 16px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid; grid-template-columns: 32px 1fr; gap: 14px;
   }
-  footer .fwrap{max-width:1180px;margin:0 auto}
-  footer .fline{font-size:17px;margin-bottom:10px;color:#fff;font-weight:500}
-  footer small{font-size:14px;opacity:.7;line-height:1.8;display:block}
+  .pub-item:last-child { border-bottom: none; }
+  .pub-num {
+    color: var(--ink-mute);
+    font-family: "Georgia", serif;
+    font-size: 15px; padding-top: 2px;
+  }
+  .pub-title { font-weight: 500; margin-bottom: 4px; }
+  .pub-meta { font-size: 15px; color: var(--ink-soft); }
+  .pub-meta .venue { font-style: italic; }
+  .pub-tag {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    padding: 1px 8px; border-radius: 3px;
+    font-size: 13px; margin-right: 6px;
+    font-family: "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
 
-  /* 响应式 */
-  @media(max-width:900px){
-    body{font-size:17px}
-    .nav-inner{padding:0 18px;height:64px}
-    .brand .brand-text strong{font-size:16px}
-    nav.links a{padding:8px 12px;font-size:15px}
-    .hero h1{font-size:38px}
-    .hero .sub{font-size:19px}
-    section{padding:64px 20px}
-    .section-head h2{font-size:28px}
-    .intro-grid,.contact-grid{grid-template-columns:1fr;gap:36px}
-    .goals,.res-grid{grid-template-columns:1fr}
-    .contact-info{grid-template-columns:1fr}
-    .hero-stats{gap:28px}
-    .hero-stats .stat .num{font-size:32px}
+  /* 研究方向标签 */
+  .tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 12px 0 20px; }
+  .tag {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 4px 14px; border-radius: 20px;
+    font-size: 15px; background: var(--bg);
   }
-  @media(max-width:560px){
-    nav.links{gap:2px}
-    nav.links a{padding:7px 8px;font-size:14px}
-    .brand .logo{width:34px;height:34px;font-size:17px}
+
+  /* 联系方式卡片 */
+  .contact-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px; margin-top: 14px;
+  }
+  .contact-card {
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    padding: 20px 22px;
+    background: var(--bg-soft);
+  }
+  .contact-card .label {
+    font-size: 13px; color: var(--ink-mute);
+    text-transform: uppercase; letter-spacing: 1.5px;
+    margin-bottom: 6px; font-family: "Georgia", serif;
+  }
+  .contact-card .value { font-size: 17px; color: var(--ink); }
+  .contact-card a { color: var(--ink); }
+  .contact-card a:hover { color: var(--accent); }
+
+  /* 教学段提示 */
+  .note {
+    background: var(--accent-soft);
+    border-left: 3px solid var(--accent);
+    padding: 16px 20px;
+    margin: 12px 0;
+    color: var(--ink-soft);
+    font-size: 16px;
+  }
+
+  /* 页脚 */
+  footer {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 36px 32px 60px;
+    border-top: 1px solid var(--rule);
+    margin-top: 30px;
+    color: var(--ink-mute);
+    font-size: 14.5px;
+    text-align: center;
+  }
+  footer .lang { font-family: "Georgia", "Times New Roman", serif; font-style: italic; }
+
+  /* ============================================
+     响应式
+     ============================================ */
+  @media (max-width: 720px) {
+    .topbar-inner { padding: 14px 18px; }
+    .topbar nav { gap: 16px; }
+    header.hero {
+      grid-template-columns: 1fr;
+      padding: 40px 18px 30px;
+      gap: 30px;
+      text-align: left;
+    }
+    .hero-text h1 { font-size: 32px; }
+    .hero-photo img { width: 160px; height: 200px; }
+    section { padding: 28px 18px; }
+    section h2 { font-size: 22px; }
   }
 </style>
 </head>
 <body>
 
-<!-- 顶部导航 -->
-<header class="nav">
-  <div class="nav-inner">
-    <a href="#home" class="brand">
-      <div class="logo">护</div>
-      <div class="brand-text">
-        <strong>护理学基础</strong>
-        <small>NURSING FUNDAMENTALS</small>
-      </div>
-    </a>
-    <nav class="links" id="navlinks">
-      <a href="#home" class="active">首页</a>
-      <a href="#intro">课程介绍</a>
-      <a href="#resources">课件资源</a>
-      <a href="#contact">联系方式</a>
+<!-- ========== 顶部导航 ========== -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="#" class="brand">陈玉卿 Yuqing Chen</a>
+    <nav>
+      <a href="#about">关于</a>
+      <a href="#education">教育背景</a>
+      <a href="#research">学术研究</a>
+      <a href="#teaching">教学</a>
+      <a href="#publications">成果</a>
+      <a href="#contact">联系</a>
     </nav>
+  </div>
+</div>
+
+<!-- ========== 头部 ========== -->
+<header class="hero" id="about">
+  <div class="hero-text">
+    <h1>陈 玉 卿</h1>
+    <div class="en-name">Yuqing Chen, Ph.D.</div>
+    <p class="tagline">
+      南昌大学护理学院讲师 · 社区护理教研室<br>
+      研究方向：肿瘤护理 · 家庭健康促进
+    </p>
+    <div class="hero-meta">
+      <div>📍 江西省南昌市 · 南昌大学</div>
+      <div>✉ <a href="mailto:chenyuqing@ncu.edu.cn">chenyuqing@ncu.edu.cn</a></div>
+    </div>
+  </div>
+  <div class="hero-photo">
+    <img src="assets/photo.jpg" alt="陈玉卿">
   </div>
 </header>
 
-<!-- 首页 -->
-<section id="home">
-  <div class="hero">
-    <span class="tag"><span class="dot"></span> 2026 春季学期 · 护理学院</span>
-    <h1>护理学基础<br><span class="accent">从人本关怀到临床技能</span></h1>
-    <p class="sub">本课程系统讲授护理学的基本理论、基础操作与临床思维，帮助学生建立科学的护理理念，培养扎实的临床实践能力与人文关怀精神。</p>
-    <div class="cta">
-      <a href="#intro" class="btn btn-primary">了解课程 →</a>
-      <a href="#resources" class="btn btn-ghost">查看课件资源</a>
-    </div>
-    <div class="hero-stats">
-      <div class="stat"><div class="num">48</div><div class="lbl">理论学时</div></div>
-      <div class="stat"><div class="num">32</div><div class="lbl">实训学时</div></div>
-      <div class="stat"><div class="num">12</div><div class="lbl">章节模块</div></div>
-      <div class="stat"><div class="num">4.8</div><div class="lbl">学生评教</div></div>
-    </div>
+<!-- ========== 关于 ========== -->
+<section>
+  <h2>关于我 <span class="en">About</span></h2>
+  <div class="bilingual">
+    <p>
+      陈玉卿，护理学博士，2024 年起任教于南昌大学护理学院，从事护理学教学与科研工作。
+      主要研究方向为<strong>肿瘤护理</strong>与<strong>家庭健康促进</strong>，关注癌症患者及其家庭照顾者的症状管理与生活质量。
+    </p>
+    <p>
+      Yuqing Chen is a lecturer at the School of Nursing, Nanchang University.
+      Her research focuses on oncology nursing and family health promotion,
+      with particular attention to symptom management and quality of life among
+      cancer patients and their family caregivers.
+    </p>
   </div>
 </section>
 
-<!-- 课程介绍 -->
-<section id="intro">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Course Overview</span>
-      <h2>课程介绍</h2>
-      <div class="rule"></div>
-      <p>以"理论—技能—人文"三位一体为脉络，夯实护理职业素养与临床核心能力。</p>
-    </div>
-
-    <div class="intro-grid">
-      <div class="intro-text">
-        <h3>一门立足临床、回归人文的护理入门课</h3>
-        <p>《护理学基础》是护理专业本科生的一门专业核心课。课程围绕"以患者为中心"的现代护理理念，从护理学发展史、护理伦理与法规出发，逐步深入到生命体征观测、无菌技术、给药护理、伤口护理等核心操作，并在临床情景模拟中训练学生的整体护理思维与沟通能力。</p>
-        <ul class="intro-features">
-          <li><span class="ic">理</span> 系统讲授护理学基本理论与护理程序</li>
-          <li><span class="ic">技</span> 规范化实训覆盖 20+ 项基础护理操作</li>
-          <li><span class="ic">德</span> 融入护理伦理、人文关怀与沟通训练</li>
-          <li><span class="ic">证</span> 结合循证护理理念培养临床评判性思维</li>
-        </ul>
-      </div>
-      <div class="intro-card">
-        <div class="label">COURSE CODE</div>
-        <div class="big">NUR-201</div>
-        <div class="desc">护理学基础 · 必修</div>
-        <div class="intro-meta">
-          <div class="item"><div class="k">学分</div><div class="v">5.0</div></div>
-          <div class="item"><div class="k">总学时</div><div class="v">80</div></div>
-          <div class="item"><div class="k">适用专业</div><div class="v">护理学</div></div>
-          <div class="item"><div class="k">考核方式</div><div class="v">理论+操作</div></div>
-        </div>
+<!-- ========== 教育背景 ========== -->
+<section id="education">
+  <h2>教育背景 <span class="en">Education</span></h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-period">2018 — 2023</div>
+      <div class="tl-desc">
+        <strong>中山大学</strong> 护理学院
+        <span class="degree">· 护理学博士</span>
       </div>
     </div>
+    <div class="tl-item">
+      <div class="tl-period">2009 — 2012</div>
+      <div class="tl-desc">
+        <strong>吉林大学</strong> 护理学院
+        <span class="degree">· 护理学硕士</span>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">2005 — 2009</div>
+      <div class="tl-desc">
+        <strong>江西中医学院</strong> 护理系
+        <span class="degree">· 护理学学士</span>
+      </div>
+    </div>
+  </div>
 
-    <div class="goals">
-      <div class="goal">
-        <div class="num">目标 01</div>
-        <h4>掌握理论</h4>
-        <p>理解护理学的基本概念、护理程序与整体护理模式，建立科学的护理学科认知框架。</p>
+  <div class="h-bilingual">
+    <span class="zh">工作经历</span>
+    <span class="en">Appointments</span>
+  </div>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-period">2024 — 至今</div>
+      <div class="tl-desc">
+        <strong>南昌大学</strong> 护理学院 讲师
       </div>
-      <div class="goal">
-        <div class="num">目标 02</div>
-        <h4>练就技能</h4>
-        <p>规范完成无菌操作、生命体征测量、静脉输液、导尿等基础护理操作，达到临床准入标准。</p>
-      </div>
-      <div class="goal">
-        <div class="num">目标 03</div>
-        <h4>涵养人文</h4>
-        <p>践行护理伦理与职业规范，具备同理心与沟通能力，成长为有温度的护理工作者。</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-period">2012 — 2018</div>
+      <div class="tl-desc">
+        <strong>江西中医药大学</strong> 护理学院 讲师
       </div>
     </div>
   </div>
 </section>
 
-<!-- 课件资源 -->
-<section id="resources">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Learning Resources</span>
-      <h2>课件资源</h2>
-      <div class="rule"></div>
-      <p>课程讲义、操作视频与复习资料持续更新，点击即可下载学习。</p>
-    </div>
+<!-- ========== 学术研究 ========== -->
+<section id="research">
+  <h2>学术研究 <span class="en">Research</span></h2>
 
-    <div class="res-filter">
-      <button class="active" data-f="all">全部</button>
-      <button data-f="ppt">课件</button>
-      <button data-f="doc">教案</button>
-      <button data-f="vid">视频</button>
-      <button data-f="pdf">习题</button>
-    </div>
+  <div class="bilingual">
+    <p>
+      主要研究领域为<strong>肿瘤护理</strong>与<strong>家庭健康促进</strong>，
+      关注癌症患者与家庭照顾者的症状管理体验、生活质量与二元自我护理。
+    </p>
+    <p>
+      Research interests: oncology nursing, family health promotion,
+      symptom management, and dyadic self-care among cancer patients
+      and their family caregivers.
+    </p>
+  </div>
 
-    <div class="res-grid" id="resGrid">
-      <div class="res-card" data-type="ppt">
-        <div class="top">
-          <div class="ftype ppt">PPT</div>
-          <div class="tinfo"><div class="tname">第一章 护理学的发展与展望</div><div class="tmeta">讲义 · 4.2 MB · 更新于 03/12</div></div>
-        </div>
-        <div class="desc">梳理中外护理学发展历程、现代护理学的范畴与未来趋势，含南丁格尔精神解读。</div>
-        <div class="tags"><span>理论</span><span>第一章</span></div>
-        <a class="dl" href="#" download>下载课件</a>
-      </div>
-
-      <div class="res-card" data-type="ppt">
-        <div class="top">
-          <div class="ftype ppt">PPT</div>
-          <div class="tinfo"><div class="tname">第二章 护理学的基本概念</div><div class="tmeta">讲义 · 3.8 MB · 更新于 03/19</div></div>
-        </div>
-        <div class="desc">讲解人、环境、健康、护理四大基本概念及其相互关系，建立整体护理观。</div>
-        <div class="tags"><span>理论</span><span>第二章</span></div>
-        <a class="dl" href="#" download>下载课件</a>
-      </div>
-
-      <div class="res-card" data-type="doc">
-        <div class="top">
-          <div class="ftype doc">DOC</div>
-          <div class="tinfo"><div class="tname">第三章 护理程序与护理评估</div><div class="tmeta">教案 · 1.6 MB · 更新于 03/26</div></div>
-        </div>
-        <div class="desc">护理评估、护理诊断、计划、实施与评价五步骤详解，附标准化护理病历模板。</div>
-        <div class="tags"><span>教案</span><span>第三章</span></div>
-        <a class="dl" href="#" download>下载教案</a>
-      </div>
-
-      <div class="res-card" data-type="vid">
-        <div class="top">
-          <div class="ftype vid">MP4</div>
-          <div class="tinfo"><div class="tname">实训 · 无菌技术操作示范</div><div class="tmeta">视频 · 18 分钟 · 更新于 04/02</div></div>
-        </div>
-        <div class="desc">完整演示无菌持物钳、无菌盘、无菌手套的规范操作流程与常见错误纠正。</div>
-        <div class="tags"><span>实训</span><span>操作示范</span></div>
-        <a class="dl" href="#" download>观看 / 下载</a>
-      </div>
-
-      <div class="res-card" data-type="vid">
-        <div class="top">
-          <div class="ftype vid">MP4</div>
-          <div class="tinfo"><div class="tname">实训 · 生命体征测量技术</div><div class="tmeta">视频 · 22 分钟 · 更新于 04/09</div></div>
-        </div>
-        <div class="desc">体温、脉搏、呼吸、血压的测量方法、记录规范及异常值临床意义解读。</div>
-        <div class="tags"><span>实训</span><span>操作示范</span></div>
-        <a class="dl" href="#" download>观看 / 下载</a>
-      </div>
-
-      <div class="res-card" data-type="ppt">
-        <div class="top">
-          <div class="ftype ppt">PPT</div>
-          <div class="tinfo"><div class="tname">第五章 给药护理与安全</div><div class="tmeta">讲义 · 5.1 MB · 更新于 04/16</div></div>
-        </div>
-        <div class="desc">给药原则、途径、药物计算与不良反应处理，重点讲解"三查七对"安全制度。</div>
-        <div class="tags"><span>理论</span><span>第五章</span></div>
-        <a class="dl" href="#" download>下载课件</a>
-      </div>
-
-      <div class="res-card" data-type="pdf">
-        <div class="top">
-          <div class="ftype pdf">PDF</div>
-          <div class="tinfo"><div class="tname">期中复习题与参考答案</div><div class="tmeta">习题 · 2.3 MB · 更新于 04/20</div></div>
-        </div>
-        <div class="desc">覆盖前五章的选择、名词解释与案例分析题，附详细解析，助力期中备考。</div>
-        <div class="tags"><span>复习</span><span>期中</span></div>
-        <a class="dl" href="#" download>下载习题</a>
-      </div>
-
-      <div class="res-card" data-type="pdf">
-        <div class="top">
-          <div class="ftype pdf">PDF</div>
-          <div class="tinfo"><div class="tname">实训操作考核评分标准</div><div class="tmeta">习题 · 1.1 MB · 更新于 04/25</div></div>
-        </div>
-        <div class="desc">十项基础护理操作的操作流程与评分细则，明确扣分点，便于考前自测。</div>
-        <div class="tags"><span>实训</span><span>考核</span></div>
-        <a class="dl" href="#" download>下载标准</a>
-      </div>
-
-      <div class="res-card" data-type="zip">
-        <div class="top">
-          <div class="ftype zip">ZIP</div>
-          <div class="tinfo"><div class="tname">全册课件资源合集</div><div class="tmeta">压缩包 · 48 MB · 更新于 04/30</div></div>
-        </div>
-        <div class="desc">汇总本学期全部讲义、教案、视频与习题，一键打包下载，离线学习更便捷。</div>
-        <div class="tags"><span>合集</span><span>打包</span></div>
-        <a class="dl" href="#" download>下载合集</a>
-      </div>
-    </div>
+  <div class="h-bilingual">
+    <span class="zh">研究关键词</span>
+    <span class="en">Keywords</span>
+  </div>
+  <div class="tags">
+    <span class="tag">肿瘤护理</span>
+    <span class="tag">家庭健康促进</span>
+    <span class="tag">症状管理</span>
+    <span class="tag">患者-照顾者二元研究</span>
+    <span class="tag">生活质量</span>
   </div>
 </section>
 
-<!-- 联系方式 -->
+<!-- ========== 教学 ========== -->
+<section id="teaching">
+  <h2>教学工作 <span class="en">Teaching</span></h2>
+  <div class="bilingual">
+    <p>
+      任职于<strong>社区护理教研室</strong>，承担护理学专业课程教学与实践指导工作。
+      关注护理教学方法创新，曾在<em>护理研究</em>期刊发表关于
+      <strong>高仿真模拟人在护理教学中的应用</strong>的教学研究论文。
+    </p>
+    <p>
+      Affiliated with the Community Nursing Teaching Section, I teach
+      undergraduate nursing courses and supervise clinical practice.
+      My teaching interests include innovative methods such as
+      high-fidelity simulation in nursing education.
+    </p>
+  </div>
+  <div class="note">
+    <strong>研究方向：</strong>肿瘤护理 &nbsp;·&nbsp;
+    <strong>教学方向：</strong>社区护理、护理教育
+  </div>
+</section>
+
+<!-- ========== 学术成果 ========== -->
+<section id="publications">
+  <h2>主要成果 <span class="en">Publications & Grants</span></h2>
+
+  <div class="h-bilingual">
+    <span class="zh">主持课题</span>
+    <span class="en">Grants</span>
+  </div>
+  <ul class="pub-list">
+    <li class="pub-item">
+      <div class="pub-num">1</div>
+      <div>
+        <div class="pub-title">癌症患者及其照顾者二元自我护理与生活质量的关系研究</div>
+        <div class="pub-meta">
+          <span class="pub-tag">主持</span>
+          <span class="venue">江西省教育厅科学技术青年项目</span>
+          · 2026/01 — 2027/12 · 3 万元 · 在研
+        </div>
+      </div>
+    </li>
+    <li class="pub-item">
+      <div class="pub-num">2</div>
+      <div>
+        <div class="pub-title">"与食俱进"：二元视角下食管癌术后患者及其家庭照顾者的症状管理体验</div>
+        <div class="pub-meta">
+          <span class="pub-tag">主持</span>
+          <span class="venue">广州泰和医学人文研究教育基金</span>
+          · 2021/04 — 2022/01 · 0.5 万元 · 结题
+        </div>
+      </div>
+    </li>
+  </ul>
+
+  <div class="h-bilingual">
+    <span class="zh">代表论文</span>
+    <span class="en">Selected Publications</span>
+  </div>
+  <ul class="pub-list">
+    <li class="pub-item">
+      <div class="pub-num">3</div>
+      <div>
+        <div class="pub-title">Patient-Family Caregiver Concordance of Symptom Assessment for Esophageal Cancer Patients Undergoing Esophagectomy</div>
+        <div class="pub-meta">
+          <span class="pub-tag">SCI</span>
+          <span class="venue">Cancer Nursing</span>, 2024, 47(2): 141-150.
+        </div>
+      </div>
+    </li>
+    <li class="pub-item">
+      <div class="pub-num">4</div>
+      <div>
+        <div class="pub-title">高仿真模拟人在护理教学中的应用现状</div>
+        <div class="pub-meta">
+          <span class="pub-tag">核心</span>
+          <span class="venue">护理研究</span>, 2011, 25(34): 3117-3119.
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>
+
+<!-- ========== 联系方式 ========== -->
 <section id="contact">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="eyebrow">Get in Touch</span>
-      <h2>联系方式</h2>
-      <div class="rule"></div>
-      <p>课程相关问题欢迎随时联系，答疑时间面对面交流效果更佳。</p>
+  <h2>联系方式 <span class="en">Contact</span></h2>
+  <div class="bilingual">
+    <p>
+      欢迎对肿瘤护理、家庭健康促进感兴趣的同学与同行来信交流。
+    </p>
+    <p>
+      Feel free to reach out for academic discussion or research collaboration.
+    </p>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="label">Email</div>
+      <div class="value">
+        <a href="mailto:chenyuqing@ncu.edu.cn">chenyuqing@ncu.edu.cn</a>
+      </div>
     </div>
-
-    <div class="contact-grid">
-      <div class="contact-info">
-        <div class="cinfo">
-          <div class="ic">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          </div>
-          <div><div class="k">电子邮箱</div><div class="v">nursing.teacher@univ.edu.cn</div></div>
-        </div>
-        <div class="cinfo">
-          <div class="ic">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          </div>
-          <div><div class="k">办公电话</div><div class="v">021-XXXX-XXXX</div></div>
-        </div>
-        <div class="cinfo">
-          <div class="ic">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          </div>
-          <div><div class="k">办公室</div><div class="v">护理学院楼 305 室</div></div>
-        </div>
-        <div class="cinfo">
-          <div class="ic">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-          </div>
-          <div><div class="k">答疑时间</div><div class="v">每周二 / 周四 下午</div></div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="label">OFFICE HOUR</div>
-        <h3>面对面答疑<br>让学习不留疑问</h3>
-        <div class="qa-time">
-          <div class="row"><span class="day">周二</span><span class="t">14:00 – 16:00</span></div>
-          <div class="row"><span class="day">周四</span><span class="t">14:00 – 16:00</span></div>
-          <div class="row"><span class="day">地点</span><span class="t">护理学院 305</span></div>
-          <div class="row"><span class="day">线上</span><span class="t">预约邮件</span></div>
-        </div>
-      </div>
+    <div class="contact-card">
+      <div class="label">Affiliation</div>
+      <div class="value">南昌大学护理学院</div>
+    </div>
+    <div class="contact-card">
+      <div class="label">Section</div>
+      <div class="value">社区护理教研室</div>
+    </div>
+    <div class="contact-card">
+      <div class="label">Address</div>
+      <div class="value">江西省南昌市红谷滩区</div>
     </div>
   </div>
 </section>
 
-<!-- 页脚 -->
+<!-- ========== 页脚 ========== -->
 <footer>
-  <div class="fwrap">
-    <div class="fline">护理学基础课程 · 护理学院</div>
-    <small>© 2026 Nursing Fundamentals. 本页面内容仅供教学使用，请勿用于商业用途。<br>课程内容与联系方式请以最新学期通知为准。</small>
-  </div>
+  <p>© 2026 Yuqing Chen · School of Nursing, Nanchang University</p>
+  <p class="lang">Last updated: July 2026</p>
 </footer>
 
-<script>
-  // 导航高亮 + 平滑滚动
-  const links = document.querySelectorAll('#navlinks a');
-  const sections = ['home','intro','resources','contact'].map(id=>document.getElementById(id));
-  window.addEventListener('scroll',()=>{
-    let cur = 'home';
-    const y = window.scrollY + 120;
-    sections.forEach(s=>{ if(s && s.offsetTop <= y) cur = s.id; });
-    links.forEach(a=>a.classList.toggle('active', a.getAttribute('href')==='#'+cur));
-  });
-
-  // 课件资源筛选
-  const filterBtns = document.querySelectorAll('.res-filter button');
-  const cards = document.querySelectorAll('#resGrid .res-card');
-  filterBtns.forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      filterBtns.forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      const f = btn.dataset.f;
-      cards.forEach(c=>{
-        const show = (f==='all' || c.dataset.type===f);
-        c.style.display = show ? 'flex' : 'none';
-      });
-    });
-  });
-</script>
 </body>
 </html>
