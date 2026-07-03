@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>陈玉卿 博士 - 南昌大学护理学院</title>
+<style>
+  :root {
+    --primary: #1e4a8a;
+    --primary-light: #3a6cb5;
+    --primary-dark: #0f2f5f;
+    --accent: #4a90c2;
+    --bg: #f4f8fd;
+    --card-bg: #ffffff;
+    --text: #1a1a1a;
+    --text-light: #4a5568;
+    --border: #d6e4f0;
+    --shadow: 0 4px 20px rgba(30, 74, 138, 0.08);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 18px;
+  }
+  /* 顶部 Banner */
+  .banner {
+    background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+    color: #fff;
+    padding: 70px 20px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,0.08) 0%, transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(255,255,255,0.08) 0%, transparent 40%);
+  }
+  .banner-inner { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; }
+  .avatar {
+    width: 150px; height: 150px; border-radius: 50%;
+    background: #fff url('chenyuqing_photo.jpg') center / cover no-repeat;
+    margin: 0 auto 22px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 70px; font-weight: 700; color: var(--primary);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    border: 5px solid rgba(255,255,255,0.9);
+  }
+  .name {
+    font-size: 48px; font-weight: 700; letter-spacing: 4px; margin-bottom: 12px;
+  }
+  .title {
+    font-size: 22px; font-weight: 400; opacity: 0.95; letter-spacing: 2px; margin-bottom: 6px;
+  }
+  .dept {
+    font-size: 18px; opacity: 0.85; margin-top: 8px;
+  }
+  /* 导航 */
+  .nav {
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; justify-content: center; flex-wrap: wrap;
+  }
+  .nav a {
+    color: var(--text); text-decoration: none;
+    padding: 18px 36px; font-size: 18px; font-weight: 500;
+    transition: all 0.3s;
+    border-bottom: 3px solid transparent;
+  }
+  .nav a:hover {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    background: var(--bg);
+  }
+  /* 主内容 */
+  main { max-width: 1100px; margin: 0 auto; padding: 50px 20px; }
+  section {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 40px 45px;
+    margin-bottom: 30px;
+    box-shadow: var(--shadow);
+    border-left: 5px solid var(--primary);
+  }
+  .section-title {
+    font-size: 30px; color: var(--primary);
+    margin-bottom: 28px; padding-bottom: 14px;
+    border-bottom: 2px solid var(--border);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .section-title::before {
+    content: ""; display: inline-block;
+    width: 6px; height: 32px;
+    background: var(--primary); border-radius: 3px;
+  }
+  .section-content { font-size: 18px; color: var(--text); }
+  .section-content p { margin-bottom: 14px; }
+  /* 教育背景时间线 */
+  .timeline { position: relative; padding-left: 30px; }
+  .timeline::before {
+    content: ""; position: absolute;
+    left: 8px; top: 8px; bottom: 8px;
+    width: 2px; background: var(--border);
+  }
+  .timeline-item {
+    position: relative; margin-bottom: 22px;
+    padding-left: 26px;
+  }
+  .timeline-item::before {
+    content: ""; position: absolute;
+    left: -27px; top: 10px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--primary);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--primary);
+  }
+  .timeline-period {
+    color: var(--primary); font-weight: 600;
+    font-size: 17px; margin-bottom: 4px;
+  }
+  .timeline-desc { color: var(--text); font-size: 18px; }
+  .timeline-desc strong { color: var(--primary-dark); }
+  /* 研究领域 */
+  .research-tags {
+    display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px;
+  }
+  .tag {
+    background: var(--bg); color: var(--primary-dark);
+    padding: 10px 22px; border-radius: 24px;
+    font-size: 18px; font-weight: 500;
+    border: 1.5px solid var(--primary-light);
+  }
+  /* 成果列表 */
+  .pub-list { list-style: none; }
+  .pub-item {
+    padding: 18px 0;
+    border-bottom: 1px dashed var(--border);
+    display: flex; gap: 18px; align-items: flex-start;
+  }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-num {
+    flex-shrink: 0;
+    width: 36px; height: 36px;
+    background: var(--primary); color: #fff;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 600; font-size: 17px;
+  }
+  .pub-text { flex: 1; font-size: 18px; line-height: 1.8; }
+  .pub-text em { color: var(--primary-dark); font-style: normal; font-weight: 600; }
+  .pub-text small { color: var(--text-light); font-size: 16px; display: block; margin-top: 4px; }
+  /* 联系方式 */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 22px;
+  }
+  .contact-card {
+    background: var(--bg);
+    padding: 24px;
+    border-radius: 10px;
+    border: 1.5px solid var(--border);
+    text-align: center;
+    transition: all 0.3s;
+  }
+  .contact-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: 0 8px 20px rgba(30, 74, 138, 0.15);
+  }
+  .contact-icon {
+    font-size: 40px; margin-bottom: 10px;
+  }
+  .contact-label {
+    color: var(--text-light);
+    font-size: 16px; margin-bottom: 6px;
+  }
+  .contact-value {
+    color: var(--primary-dark);
+    font-size: 20px; font-weight: 600;
+    word-break: break-all;
+  }
+  /* 教学 */
+  .teaching-note {
+    background: var(--bg);
+    padding: 20px 24px;
+    border-left: 4px solid var(--primary-light);
+    border-radius: 6px;
+    color: var(--text-light);
+    font-size: 17px;
+  }
+  /* 页脚 */
+  footer {
+    background: var(--primary-dark);
+    color: #fff;
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 16px;
+  }
+  footer p { opacity: 0.85; margin: 4px 0; }
+  @media (max-width: 700px) {
+    .name { font-size: 34px; }
+    .title { font-size: 18px; }
+    .avatar { width: 120px; height: 120px; font-size: 56px; }
+    section { padding: 28px 22px; }
+    .section-title { font-size: 24px; }
+    .nav a { padding: 14px 18px; font-size: 16px; }
+    main { padding: 30px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <div class="banner-inner">
+    <div class="avatar" aria-label="陈玉卿照片"></div>
+    <h1 class="name">陈 玉 卿</h1>
+    <p class="title">博 士 · 讲 师</p>
+    <p class="dept">南昌大学护理学院 · 社区护理教研室</p>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#education">教育背景</a>
+    <a href="#research">学术介绍</a>
+    <a href="#teaching">教学介绍</a>
+    <a href="#contact">联系方式</a>
+  </div>
+</nav>
+
+<main>
+
+  <section id="education">
+    <h2 class="section-title">教育背景</h2>
+    <div class="section-content">
+      <div class="timeline">
+
+        <div class="timeline-item">
+          <div class="timeline-period">2024 — 至今</div>
+          <div class="timeline-desc">
+            <strong>南昌大学护理学院</strong>　讲师
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-period">2018 — 2023</div>
+          <div class="timeline-desc">
+            <strong>中山大学护理学院</strong>　护理学　<em>医学博士</em>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-period">2012 — 2018</div>
+          <div class="timeline-desc">
+            <strong>江西中医药大学护理学院</strong>　讲师
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-period">2009 — 2012</div>
+          <div class="timeline-desc">
+            <strong>吉林大学护理学院</strong>　护理学　<em>医学硕士</em>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-period">2005 — 2009</div>
+          <div class="timeline-desc">
+            <strong>江西中医学院护理系</strong>　护理学　<em>医学学士</em>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <h2 class="section-title">学术介绍</h2>
+    <div class="section-content">
+
+      <p style="font-size: 19px; color: var(--text); margin-bottom: 22px;">
+        陈玉卿博士主要从事 <strong style="color: var(--primary-dark);">肿瘤护理</strong> 与 <strong style="color: var(--primary-dark);">家庭健康促进</strong> 方向的研究。
+      </p>
+
+      <h3 style="color: var(--primary); font-size: 22px; margin-bottom: 12px; margin-top: 18px;">研究领域</h3>
+      <div class="research-tags">
+        <span class="tag">肿瘤护理</span>
+        <span class="tag">家庭健康促进</span>
+        <span class="tag">症状管理</span>
+        <span class="tag">患者-家庭照顾者二元研究</span>
+      </div>
+
+      <h3 style="color: var(--primary); font-size: 22px; margin-top: 32px; margin-bottom: 14px;">主要研究成果</h3>
+      <ul class="pub-list">
+
+        <li class="pub-item">
+          <div class="pub-num">1</div>
+          <div class="pub-text">
+            <em>江西省教育厅科学技术青年项目</em><br>
+            癌症患者及其照顾者二元自我护理与生活质量的关系研究
+            <small>2026/01 — 2027/12　·　3 万元　·　在研　·　主持</small>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-num">2</div>
+          <div class="pub-text">
+            <em>广州泰和医学人文研究教育基金</em><br>
+            "与食俱进"：二元视角下食管癌术后患者及其家庭照顾者的症状管理体验
+            <small>2021/04 — 2022/01　·　0.5 万元　·　结题　·　主持</small>
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-num">3</div>
+          <div class="pub-text">
+            <em>SCI 论文 (Cancer Nursing, 2024)</em><br>
+            Chen Y Q, Zhong J D, Hong Y T, Yuan J, Zhang J E.
+            Patient-Family Caregiver Concordance of Symptom Assessment for Esophageal Cancer Patients Undergoing Esophagectomy
+            [<em>Cancer Nursing</em>, 2024, 47(2): 141-150.]
+          </div>
+        </li>
+
+        <li class="pub-item">
+          <div class="pub-num">4</div>
+          <div class="pub-text">
+            <em>北大中文核心期刊论文</em><br>
+            陈玉卿, 钟玉杰, 王鹏举. 高仿真模拟人在护理教学中的应用现状
+            [<em>护理研究</em>, 2011, 25(34): 3117-3119.]
+          </div>
+        </li>
+
+      </ul>
+
+    </div>
+  </section>
+
+  <section id="teaching">
+    <h2 class="section-title">教学介绍</h2>
+    <div class="section-content">
+      <p>
+        陈玉卿老师任职于<strong style="color: var(--primary-dark);">南昌大学护理学院社区护理教研室</strong>，承担护理学专业的相关课程教学与实践指导工作。
+      </p>
+      <p>
+        教学过程中注重理论与临床实践相结合，关注护理教学方法创新，曾在<em>护理研究</em>期刊发表关于<strong>高仿真模拟人在护理教学中的应用</strong>的教学研究论文，致力于提升学生的临床思维与实践能力。
+      </p>
+      <div class="teaching-note">
+        <strong style="color: var(--primary-dark);">研究方向：</strong>肿瘤护理 &nbsp;|&nbsp;
+        <strong style="color: var(--primary-dark);">教学方向：</strong>社区护理、护理教育
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2 class="section-title">联系方式</h2>
+    <div class="section-content">
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <div class="contact-icon">✉</div>
+          <div class="contact-label">电子邮箱</div>
+          <div class="contact-value">chenyuqing@ncu.edu.cn</div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">🏛</div>
+          <div class="contact-label">所在单位</div>
+          <div class="contact-value">南昌大学护理学院</div>
+        </div>
+
+        <div class="contact-card">
+          <div class="contact-icon">📚</div>
+          <div class="contact-label">所属教研室</div>
+          <div class="contact-value">社区护理教研室</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>南昌大学护理学院 · Chen Yuqing</p>
+  <p>个人主页 · 个人学术信息展示</p>
+</footer>
+
+</body>
+</html>
